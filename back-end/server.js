@@ -29,7 +29,9 @@ app.post('/questions', (req, res) => {
     id: Date.now(),
     question: req.body.question,
     firstAnswer: req.body.firstAnswer,
-    secondAnswer: req.body.secondAnswer
+    secondAnswer: req.body.secondAnswer,
+    quantityFirstAnswers: 0,
+    quantitySecondAnswers: 0
   }
   db.push('/questions[]', question, true);
   res.send(question);
@@ -40,9 +42,9 @@ app.put('/questions/:id', (req, res) => {
   var question = db.find('/questions', (item) => {
     return Number(item.id) === Number(req.params.id);
   });
-  question.question = req.body.question;
-  question.firstAnswer = req.body.firstAnswer;
-  question.secondAnswer = req.body.secondAnswer;
+  question.question = req.body.question ? req.body.question : question.question;
+  question.firstAnswer = req.body.firstAnswer ? req.body.firstAnswer : question.firstAnswer;
+  question.secondAnswer = req.body.secondAnswer ? req.body.secondAnswer : question.secondAnswer;
   db.delete(`/questions[${questions.indexOf(question)}]`);
   db.push('/questions[]', question);
   res.sendStatus(200);
