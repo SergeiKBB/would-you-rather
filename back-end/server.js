@@ -32,7 +32,7 @@ app.post('/questions', (req, res) => {
     secondAnswer: req.body.secondAnswer,
     quantityFirstAnswers: 0,
     quantitySecondAnswers: 0
-  }
+  };
   db.push('/questions[]', question, true);
   res.send(question);
 });
