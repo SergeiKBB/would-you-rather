@@ -274,20 +274,21 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           // By default we support CSS Modules with the extension .module.css
           {
-            test: /\.(?:le|c)ss$/,
+            test: /\.less$/,
             use: [
-              require.resolve('style-loader'),
               {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                },
+                loader: "style-loader"
               },
               {
-                loader: require.resolve('less-loader'),
+                loader: "css-loader",
                 options: {
-                  importLoaders: 1,
-                },
+                  sourceMap: true,
+                  modules: true,
+                  localIdentName: "[local]___[hash:base64:5]"
+                }
+              },
+              {
+                loader: "less-loader"
               }
             ]
           },
