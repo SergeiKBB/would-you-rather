@@ -5,6 +5,18 @@ var JsonDB = require('node-json-db');
 var app = express();
 var db = new JsonDB("questionsDataBase", true, false);
 
+app.use(function (req, res, next) {
+
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  next();
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -50,7 +62,7 @@ app.put('/questions/:id', (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(3000,  () => {
-  console.log('Example app listening on port 3000!');
+app.listen(4000,  () => {
+  console.log('Example app listening on port 4000!');
 });
 
