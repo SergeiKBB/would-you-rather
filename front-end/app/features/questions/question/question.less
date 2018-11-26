@@ -1,0 +1,32 @@
+.question {
+  &::before {
+    content: '\f30c';
+    margin-right: 10px;
+    font-weight: bold;
+    font-family: "Font Awesome 5 Free";
+
+  }
+
+  &_active {
+    &::before {
+
+    }
+  }
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  &__item {
+    margin: 10px 0;
+    &-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.input {
+  margin-right: 10px;
+}

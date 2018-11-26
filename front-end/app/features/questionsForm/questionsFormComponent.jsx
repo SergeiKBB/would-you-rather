@@ -50,27 +50,27 @@ class QuestionsForm extends Component {
 
     render() {
         return (
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type='text'
-                        value={this.props.text}
-                        placeholder='Your question'
-                        onChange={this.handleQuestionChange}
-                    />
-                    <input
-                        type='text'
-                        value={this.props.text}
-                        placeholder='Your first answer'
-                        onChange={this.handleFirstAnswerChange}
-                    />
-                    <input
-                        type='text'
-                        value={this.props.text}
-                        placeholder='Your second answer'
-                        onChange={this.handleSecondAnswerChange}
-                    />
-                    <button type="submit">Add</button>
-                </form>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type='text'
+            value={this.props.text}
+            placeholder='Your question'
+            onChange={this.handleQuestionChange}
+          />
+          <input
+            type='text'
+            value={this.props.text}
+            placeholder='Your first answer'
+            onChange={this.handleFirstAnswerChange}
+          />
+          <input
+            type='text'
+            value={this.props.text}
+            placeholder='Your second answer'
+            onChange={this.handleSecondAnswerChange}
+          />
+          <button type="submit">Add</button>
+        </form>
         )
     }
 }
