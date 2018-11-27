@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9183051-05ed-4067-ada6-bc26cf2700a8" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,7 +31,11 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
+<<<<<<< HEAD
           <entry key="js" value="33" />
+=======
+          <entry key="js" value="34" />
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
           <entry key="jsx" value="14" />
           <entry key="less" value="5" />
         </counts>
@@ -34,7 +44,11 @@
         <counts>
           <entry key="HTML" value="1" />
           <entry key="JSX Harmony" value="14" />
+<<<<<<< HEAD
           <entry key="JavaScript" value="33" />
+=======
+          <entry key="JavaScript" value="34" />
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
           <entry key="Less" value="5" />
         </counts>
       </usages-collector>
@@ -64,8 +78,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/back-end/server.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="374">
               <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+=======
+            <state relative-caret-position="466">
+              <caret line="66" column="3" lean-forward="true" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
             </state>
           </provider>
         </entry>
@@ -114,11 +133,14 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
+=======
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
@@ -137,11 +159,14 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="back-end" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="would-you-rather" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="front-end" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+=======
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
           </expand>
           <select />
         </subPane>
@@ -234,10 +259,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+=======
+    <option name="totallyTimeSpent" value="26000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49846154" visible="true" weight="0.17544784" />
@@ -268,8 +300,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/back-end/server.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="374">
           <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+=======
+        <state relative-caret-position="466">
+          <caret line="66" column="3" lean-forward="true" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
+>>>>>>> dbc08d80551bdfefeaf8ee1a9081239a6fe52cd0
         </state>
       </provider>
     </entry>
