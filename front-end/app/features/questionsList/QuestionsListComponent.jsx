@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styles from './questions.less';
-import Question from "./question/QuestionComponent";
+import Question from "./question/queastionContainer";
 
 
 
@@ -19,7 +19,7 @@ class Questions extends Component {
     const { questions } = this.props;
     return (
       questions.map((question) => (
-        <Question question={question} key={question.id}/>
+        <Question question={question} key={question.id} />
       ))
     )
   }

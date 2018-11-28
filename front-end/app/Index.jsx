@@ -1,13 +1,14 @@
 import React from 'react';
-import App from './App';
+import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
-import './index.less';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import * as serviceWorker from './serviceWorker';
+import App from './App';
 import rootReducer from './rootReducer';
-import thunk from 'redux-thunk';
+import './index.less';
+
 
 
 const store = createStore(
@@ -19,7 +20,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+      <App />
   </Provider>,
   document.getElementById('root')
 );
