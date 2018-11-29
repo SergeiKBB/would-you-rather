@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './answers.less';
 
 const Answers = props => {
-  const { isOpen, firstAnswer, secondAnswer, answers } = props;
-  console.log(answers)
+  const { isOpen, question: { id, firstAnswer, secondAnswer }, addAnswer } = props;
   if(isOpen) {
     return (
       <div className={styles.answers}>
@@ -12,18 +11,33 @@ const Answers = props => {
           type='radio'
           value={firstAnswer}
           name='answers'
+          onClick={handleAnswer.bind(null, addAnswer, {
+            id,
+            firstAnswer: 1,
+            secondAnswer: 0
+          })}
         />{firstAnswer}</label>
         <label className={styles.answers__item}><input
           className={styles.input}
           type='radio'
           value={secondAnswer}
           name='answers'
+          onClick={handleAnswer.bind(null, addAnswer, {
+            id,
+            firstAnswer: 0,
+            secondAnswer: 1
+          })}
         />{secondAnswer}</label>
       </div>
     )
   }
   return null;
 };
+
+const handleAnswer = (func, answer) => {
+  func(answer);
+};
+
 
 
 export default Answers;

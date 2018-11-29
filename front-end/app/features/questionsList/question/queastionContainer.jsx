@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
 import QuestionComponent from './QuestionComponent';
 import { connect } from 'react-redux';
-import { getAnswers } from '../../../entities/questions/questionsActions';
+import { getAnswers, addAnswer } from '../../../entities/questions/questionsActions';
 
 class QuestionContainer extends Component {
 
-  componentDidMount() {
-    const { dispatch, question: { id } } = this.props;
-    dispatch(getAnswers(id));
-  }
+  addAnswer = (answer) => {
+    this.props.onAddAnswer(answer)
+      .then(() => this.props.onGetAnswer(answer.id))
+  };
 
   render() {
-    const { question, answers} = this.props;
+    const { question, answers } = this.props;
     return (
-      <QuestionComponent question={question} answers={answers}/>
+      <QuestionComponent addAnswer={this.addAnswer} question={question} answers={answers}/>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    answers: state.questions.answers
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  onAddAnswer: answer => (dispatch(addAnswer(answer))),
+  onGetAnswer: id => (dispatch(getAnswers(id)))
+});
 
-export default connect(mapStateToProps)(QuestionContainer);
+const mapStateToProps = state => ({
+  answers: state.questions.answers
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionContainer);
