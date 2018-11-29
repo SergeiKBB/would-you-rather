@@ -26,8 +26,8 @@ class Question extends Component {
       <div>
         <form className={styles.form}>
           <h2 className={`${styles.question} ${isOpen ? styles.question_active : ''}`} onClick={this.handleOpen}>{finalQuestion}</h2>
-          {answers ? <Answers isOpen={isOpen} question={item} addAnswer={addAnswer} />
-            : <Stats isOpen={isOpen} />}
+          {answers ? <Stats isOpen={isOpen} />
+            : <Answers isOpen={isOpen} question={item} addAnswer={addAnswer} />}
         </form>
       </div>
     )
