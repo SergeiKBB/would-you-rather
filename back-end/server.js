@@ -62,6 +62,34 @@ app.put('/questions/:id', (req, res) => {
   res.sendStatus(200);
 });
 
+app.get('/stats/:id', (req, res) => {
+  var question = db.find('/stats', (item) => {
+    return Number(item.id) === Number(req.params.id);
+  });
+  res.send(question);
+});
+
+app.put('/stats/:id', (req, res) => {
+  var questions = db.getData('/stats');
+  var question = db.find('/stats', (item) => {
+    return Number(item.id) === Number(req.params.id);
+  });
+  if(question) {
+    question.firstAnswer += req.body.firstAnswer;
+    question.secondAnswer += req.body.secondAnswer;
+    db.delete(`/stats[${questions.indexOf(question)}]`);
+    db.push('/stats[]', question)
+  } else {
+    question = {
+      id: req.params.id,
+      firstAnswer: req.body.firstAnswer,
+      secondAnswer: req.body.secondAnswer
+    };
+    db.push('/stats[]', question)
+  }
+  res.sendStatus(200);
+})
+
 app.listen(4000,  () => {
   console.log('Example app listening on port 4000!');
 });
