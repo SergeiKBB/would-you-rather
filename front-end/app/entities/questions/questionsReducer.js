@@ -5,24 +5,29 @@ import { handleActions } from 'redux-actions';
 
 const initialState = {
   list: [],
-  gotData: false,
-  answers: {},
-  id: ''
+  answers: []
 };
 
 export default handleActions(
   {
     [requestQuestionsBegin]: state => (state),
-    [requestQuestionsSuccess]: (state, { payload }) => ({ list: payload}),
+    [requestQuestionsSuccess]: (state, { payload }) => ({ ...state, list: payload, gotData: false}),
     [requestQuestionsFailure]: (state, { payload }) => ({ ...state, error: payload}),
     [requestAddQuestionBegin]: state => state,
     [requestAddQuestionSuccess]: state => ({ ...state, gotData: true}),
     [requestAddQuestionFailure]: (state, { payload }) => ({ ...state, error: payload}),
     [requestAnswersBegin]: state => (state),
-    [requestAnswersSuccess]: (state, { payload }) => ({...state, answers: payload}),
+    [requestAnswersSuccess]: (state, { payload }) => {
+      const answers = state.answers ? [...state.answers] : [];
+      answers.push(payload);
+      return {
+        ...state,
+        answers: answers
+      }
+    },
     [requestAnswersFailure]: (state, { payload }) => ({ ...state, error: payload}),
     [requestAddAnswerBegin]: state => (state),
-    [requestAddAnswerSuccess]: (state, { payload }) => ({...state, id: payload}),
+    [requestAddAnswerSuccess]: state => (state),
     [requestAddAnswerFailure]: (state, { payload }) => ({...state, error: payload})
   },
   initialState

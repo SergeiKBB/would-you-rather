@@ -8,12 +8,12 @@ const INITIAL_STATE = {
   question: '',
   firstAnswer: '',
   secondAnswer: ''
-}
+};
 
 class QuestionsForm extends Component {
   static propTypes = {
     onAddQuestion: PropTypes.func.isRequired
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -25,21 +25,21 @@ class QuestionsForm extends Component {
     this.setState({
       question: value
     })
-  }
+  };
 
   handleFirstAnswerChange = (e) => {
     const {value} = e.target;
     this.setState({
       firstAnswer: value
     })
-  }
+  };
 
   handleSecondAnswerChange = (e) => {
     const {value} = e.target;
     this.setState({
       secondAnswer: value
     })
-  }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ class QuestionsForm extends Component {
     const {onAddQuestion} = this.props;
     onAddQuestion({question, firstAnswer, secondAnswer});
     this.setState({...INITIAL_STATE});
-  }
+  };
 
   render() {
     const {text, gotData} = this.props;

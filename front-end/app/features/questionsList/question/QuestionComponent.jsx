@@ -18,7 +18,7 @@ class Question extends Component {
   };
 
   render() {
-    const { question: { question }, addAnswer, answers} = this.props;
+    const { question: { question }, addAnswer, answer } = this.props;
     const { question: item } = this.props;
     const { isOpen } = this.state;
     const finalQuestion = question[question.length - 1] === '?' ? question : question + '?';
@@ -26,7 +26,7 @@ class Question extends Component {
       <div>
         <form className={styles.form}>
           <h2 className={`${styles.question} ${isOpen ? styles.question_active : ''}`} onClick={this.handleOpen}>{finalQuestion}</h2>
-          {answers ? <Stats isOpen={isOpen} />
+          { answer ? <Stats isOpen={isOpen} stats={answer}/>
             : <Answers isOpen={isOpen} question={item} addAnswer={addAnswer} />}
         </form>
       </div>

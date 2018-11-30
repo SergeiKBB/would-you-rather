@@ -61,7 +61,7 @@ export const addAnswer = answer => {
     dispatch(requestAddAnswerBegin());
     return axios.put(`http://localhost:5000/stats/${answer.id}`, answer)
       .then(res => {
-        dispatch(requestAddAnswerSuccess(answer.id))
+        dispatch(requestAddAnswerSuccess())
       })
       .catch(error => {
         dispatch(requestAddAnswerFailure(error))

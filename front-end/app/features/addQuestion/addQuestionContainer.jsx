@@ -18,6 +18,6 @@ const mapStateToProps = state => {
   return {
     gotData: state.questions.gotData
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddQuestionContainer);

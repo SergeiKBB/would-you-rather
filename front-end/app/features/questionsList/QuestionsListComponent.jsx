@@ -8,7 +8,7 @@ import Question from "./question/queastionContainer";
 class Questions extends Component {
   static propTypes = {
     questions: PropTypes.array.isRequired
-  }
+  };
 
   constructor(props) {
     super(props);
