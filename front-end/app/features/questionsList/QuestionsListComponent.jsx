@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import styles from './questions.less';
 import Question from "./question/queastionContainer";
@@ -18,9 +19,15 @@ class Questions extends Component {
   render() {
     const { questions } = this.props;
     return (
-      questions.map((question) => (
-        <Question question={question} key={question.id} />
-      ))
+      <ListGroup>
+        {
+          questions.map((question) => (
+            <ListGroup.Item variant='info'>
+              <Question question={question} key={question.id} />
+            </ListGroup.Item>
+          ))
+        }
+      </ListGroup>
     )
   }
 }

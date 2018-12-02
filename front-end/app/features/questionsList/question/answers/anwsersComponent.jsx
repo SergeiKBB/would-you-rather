@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'react-bootstrap';
 import styles from './answers.less';
 
 const Answers = props => {

@@ -8,12 +8,10 @@ import styles from "../app.less";
 const QuestionsList = props => {
   return (
     <div>
-      <Header title='Would you rather...' />
-      <div className={styles.wrapper__btn}>
-        <NavLink to='/addQuestion'>
-          <Button text='Add question'/>
-        </NavLink>
-      </div>
+      <Header title='Would you rather...'>
+        <NavLink to='/addQuestion' className={styles.btn}>
+          <Button text='Add question' />
+        </NavLink></Header>
       <QuestionsListComponent />
     </div>
   )

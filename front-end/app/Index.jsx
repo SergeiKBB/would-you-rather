@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import rootReducer from './rootReducer';
 import './index.less';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const store = createStore(

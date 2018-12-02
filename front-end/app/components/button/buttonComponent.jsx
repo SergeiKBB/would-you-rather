@@ -1,9 +1,10 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import styles from './button.less';
 
-const Button = props => {
+const ButtonComponent = props => {
     const { text, type = 'button' } = props;
-    return <button className={styles.btn} type={type}>{text}</button>
+    return <Button className={styles.btn} variant='primary' type={type}>{text}</Button>
 }
 
-export default Button;
+export default ButtonComponent;
