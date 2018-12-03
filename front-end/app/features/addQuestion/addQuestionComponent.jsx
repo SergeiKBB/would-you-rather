@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Redirect, NavLink} from 'react-router-dom';
+import { Form, FormGroup, FormControl, FormLabel, FormText } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import styles from './addQuestion.less';
 import Button from "../../components/button";
@@ -50,29 +51,21 @@ class QuestionsForm extends Component {
   };
 
   render() {
-    const {text, gotData} = this.props;
+    const {gotData} = this.props;
     return (
       <form onSubmit={this.handleSubmit} className={styles.form}>
-          <textarea
-            value={text}
-            placeholder='Your question'
-            onChange={this.handleQuestionChange}
-            className={styles.question}
-          />
-        <input
-          type='text'
-          value={text}
-          placeholder='Your first answer'
-          onChange={this.handleFirstAnswerChange}
-          className={`${styles['answer-first']} ${styles.answer}`}
-        />
-        <input
-          type='text'
-          value={text}
-          placeholder='Your second answer'
-          onChange={this.handleSecondAnswerChange}
-          className={`${styles['answer-second']} ${styles.answer}`}
-        />
+        <div className='form-group'>
+          <label className={`form-label ${styles.label}`}>Your question</label>
+          <textarea className='form-control' onChange={this.handleQuestionChange}/>
+        </div>
+        <div className='form-group'>
+          <label className={`form-label ${styles.label}`}>First answer</label>
+          <input className='form-control' onChange={this.handleFirstAnswerChange}/>
+        </div>
+        <div className='form-group'>
+          <label className={`form-label ${styles.label}`}>Second answer</label>
+          <input className='form-control' onChange={this.handleSecondAnswerChange}/>
+        </div>
         <div className={styles.wrapper__btn}>
           <NavLink to='/home'><Button text='Cancel'/></NavLink>
           <Route path='/' render={() => (

@@ -1,6 +1,7 @@
 import { requestQuestionsSuccess, requestQuestionsBegin, requestQuestionsFailure, requestAddQuestionSuccess,
          requestAddQuestionFailure, requestAddQuestionBegin, requestAnswersBegin, requestAnswersSuccess,
          requestAnswersFailure, requestAddAnswerBegin, requestAddAnswerSuccess, requestAddAnswerFailure } from './questionsActions';
+import { answersSelector } from './questionsSelectors';
 import { handleActions } from 'redux-actions';
 
 const initialState = {
@@ -17,14 +18,7 @@ export default handleActions(
     [requestAddQuestionSuccess]: state => ({ ...state, gotData: true}),
     [requestAddQuestionFailure]: (state, { payload }) => ({ ...state, error: payload}),
     [requestAnswersBegin]: state => (state),
-    [requestAnswersSuccess]: (state, { payload }) => {
-      const answers = state.answers ? [...state.answers] : [];
-      answers.push(payload);
-      return {
-        ...state,
-        answers: answers
-      }
-    },
+    [requestAnswersSuccess]: requestAnswersProcessor,
     [requestAnswersFailure]: (state, { payload }) => ({ ...state, error: payload}),
     [requestAddAnswerBegin]: state => (state),
     [requestAddAnswerSuccess]: state => (state),
@@ -32,3 +26,20 @@ export default handleActions(
   },
   initialState
 );
+
+function requestAnswersProcessor (state, { payload }) {
+  const answers = [...state.answers];
+  const index = answers.findIndex(item => {
+    return item.id === payload.id;
+  });
+  if(index === -1) {
+    answers.push(payload);
+  } else {
+    answers[index] = payload;
+  }
+
+  return {
+    ...state,
+    answers: answers
+  }
+}

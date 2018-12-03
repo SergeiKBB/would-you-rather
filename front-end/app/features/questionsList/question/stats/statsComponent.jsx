@@ -1,24 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './stats.less';
 
-const Stats = (props) => {
-  const { isOpen, stats: { firstAnswer, secondAnswer} } = props;
-  const statsComponent = isOpen
-    ? <div className={styles.stats__wrapper}>
-        <span className={styles.stats__item}>{calcPercent( firstAnswer, secondAnswer, true )}%</span>
-        <span className={styles.stats__item}>{calcPercent( firstAnswer, secondAnswer)}%</span>
-      </div>
-    : null;
-  return statsComponent;
-};
-
-const calcPercent = (firstAnswer, secondAnswer, which) => {
-  const sum = Number(firstAnswer) + Number(secondAnswer);
-  if(which) {
-    return Math.round(firstAnswer/sum*100);
+class Stats extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: 0
+    }
   }
 
-  return Math.round(secondAnswer/sum*100);
-};
+  componentDidMount() {
+    const { percent } = this.props;
+    setTimeout(()=>{
+      this.setState({
+        width: percent
+      })
+    }, 10)
+  }
+
+
+
+  render() {
+    const { percent } = this.props;
+    const { width } = this.state;
+    const style = {
+      width: width + '%',
+    };
+    return (
+      <div className='progress'>
+          <div role="progressbar" aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100" className={`active progress-bar progress-bar-striped ${styles.custom_progress}`} style={style}>{percent}%</div>
+      </div>
+    )
+  }
+}
+
 
 export default Stats;

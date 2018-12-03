@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { Form } from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import styles from './question.less';
-import Answers from "./answers/anwsersComponent";
+import Answer from "./answers/anwsersComponent";
 import Stats from "./stats";
 
 class Question extends Component {
@@ -18,17 +18,48 @@ class Question extends Component {
     })
   };
 
+  handleFirstAnswer = () => {
+    const {addAnswer, question: {id}} = this.props;
+    addAnswer({
+      id,
+      firstAnswer: 1,
+      secondAnswer: 0
+    })
+  };
+
+  handleSecondAnswer = () => {
+    const {addAnswer, question: {id}} = this.props;
+    addAnswer({
+      id,
+      firstAnswer: 0,
+      secondAnswer: 1
+    })
+  };
+
+  calcPercent = (stats, which) => {
+    const {firstAnswer, secondAnswer} = stats;
+    const sum = Number(firstAnswer) + Number(secondAnswer);
+    if (which) {
+      return Math.round(firstAnswer / sum * 100);
+    }
+
+    return Math.round(secondAnswer / sum * 100);
+  };
+
   render() {
-    const { question: { question }, addAnswer, answer } = this.props;
-    const { question: item } = this.props;
-    const { isOpen } = this.state;
+    const {question: {question, firstAnswer, secondAnswer}, answer: stats} = this.props;
+    const {isOpen} = this.state;
     const finalQuestion = question[question.length - 1] === '?' ? question : question + '?';
     return (
       <div>
         <Form className={styles.form}>
-          <h2 className={`${styles.question} ${isOpen ? styles.question_active : ''}`} onClick={this.handleOpen}>{finalQuestion}</h2>
-          { answer ? <Stats isOpen={isOpen} stats={answer}/>
-            : <Answers isOpen={isOpen} question={item} addAnswer={addAnswer} />}
+          <h3 className={`${styles.question} ${isOpen ? styles.question_active : ''}`} onClick={this.handleOpen}>{finalQuestion}</h3>
+          {isOpen ? <React.Fragment>
+            <Answer answer={firstAnswer} handleAnswer={this.handleFirstAnswer}/>
+            {stats ? <Stats percent={this.calcPercent(stats, true)}/> : null}
+            <Answer answer={secondAnswer} handleAnswer={this.handleSecondAnswer}/>
+            {stats ? <Stats percent={this.calcPercent(stats)}/> : null}
+          </React.Fragment> : null}
         </Form>
       </div>
     )
