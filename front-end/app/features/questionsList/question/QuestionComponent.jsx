@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Form} from 'react-bootstrap';
 import styles from './question.less';
 import Answer from "./answers/anwsersComponent";
 import Stats from "./stats";
@@ -52,7 +51,7 @@ class Question extends Component {
     const finalQuestion = question[question.length - 1] === '?' ? question : question + '?';
     return (
       <div>
-        <Form className={styles.form}>
+        <form className={styles.form}>
           <h3 className={`${styles.question} ${isOpen ? styles.question_active : ''}`} onClick={this.handleOpen}>{finalQuestion}</h3>
           {isOpen ? <React.Fragment>
             <Answer answer={firstAnswer} handleAnswer={this.handleFirstAnswer}/>
@@ -60,7 +59,7 @@ class Question extends Component {
             <Answer answer={secondAnswer} handleAnswer={this.handleSecondAnswer}/>
             {stats ? <Stats percent={this.calcPercent(stats)}/> : null}
           </React.Fragment> : null}
-        </Form>
+        </form>
       </div>
     )
   }
