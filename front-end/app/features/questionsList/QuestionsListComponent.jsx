@@ -21,8 +21,8 @@ class Questions extends Component {
       <div className='list-group'>
         {
           questions.map((question) => (
-            <div className='list-group-item list-group-item-info'>
-              <Question question={question} key={question.id} />
+            <div className='list-group-item list-group-item-info' key={question.id}>
+              <Question question={question} />
             </div>
           ))
         }
