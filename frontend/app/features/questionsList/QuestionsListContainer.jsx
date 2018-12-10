@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuestionsComponent from './QuestionsListComponent';
-import { getQuestions } from '../../entities/questions/questionsActions';
+import { getQuestions } from '../../entities/questions/list/questionsActions';
 
 class QuestionsListContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getQuestions());

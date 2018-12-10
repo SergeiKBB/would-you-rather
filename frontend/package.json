@@ -100,11 +100,11 @@
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
+      "^.+.(css|less)$"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      ".(css|less)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -128,6 +128,7 @@
     "axios": "^0.18.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "history": "^4.7.2",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "prop-types": "^15.6.2",

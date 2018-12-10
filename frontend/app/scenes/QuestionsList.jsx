@@ -15,7 +15,7 @@ const QuestionsList = props => {
       <QuestionsListComponent />
     </div>
   )
-}
+};
 
 
 export default QuestionsList;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import QuestionComponent from './QuestionComponent';
 import { connect } from 'react-redux';
-import { getAnswers, addAnswer } from '../../../entities/questions/questionsActions';
-import { getQuestionStatsSelector } from '../../../entities/questions/questionsSelectors';
+import { getAnswers, addAnswer } from '../../../entities/questions/stats/statsActions';
+import { getQuestionStatsSelector } from '../../../entities/questions/stats/statsSelectors';
 
 class QuestionContainer extends Component {
   addAnswer = (answer) => {

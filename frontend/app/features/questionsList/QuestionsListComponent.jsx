@@ -1,28 +1,30 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import styles from './questions.less';
-import Question from "./question/queastionContainer";
-
+import Question from "./question/QueastionContainer";
 
 
 class Questions extends Component {
   static propTypes = {
-    questions: PropTypes.array.isRequired
+    questions: PropTypes.arrayOf(
+      PropTypes.shape(
+        {
+          id: PropTypes.number.isRequired,
+          question: PropTypes.string.isRequired,
+          firstAnswer: PropTypes.string.isRequired,
+          secondAnswer: PropTypes.string.isRequired
+        }
+      )
+    )
   };
 
-  constructor(props) {
-    super(props);
-  }
-
-
   render() {
-    const { questions } = this.props;
+    const {questions} = this.props;
     return (
       <div className='list-group'>
         {
           questions.map((question) => (
-            <div className='list-group-item list-group-item-info'>
-              <Question question={question} key={question.id} />
+            <div className='list-group-item list-group-item-info' key={question.id}>
+              <Question question={question}/>
             </div>
           ))
         }

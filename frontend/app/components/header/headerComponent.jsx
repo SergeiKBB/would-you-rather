@@ -1,7 +1,4 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
-import Button from '../button';
-import { NavLink } from 'react-router-dom';
 import styles from './header.less';
 
 const Header = props => {

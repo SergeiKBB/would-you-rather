@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
-import QuestionsList from './scenes/questionsList';
-import AddQuestion from './scenes/addQuestion';
+import { Router, Route } from 'react-router-dom';
+import history from './history';
+import QuestionsList from './scenes/QuestionsList';
+import AddQuestion from './scenes/AddQuestion';
 import styles from './app.less';
 
 
@@ -9,7 +10,7 @@ import styles from './app.less';
 export default class App extends Component {
     render() {
         return (
-            <Router>
+            <Router history={history}>
                 <div className={styles.main}>
                     <Route exact path='/' component={QuestionsList} />
                     <Route path='/home' component={QuestionsList} />

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Route, Redirect, NavLink} from 'react-router-dom';
-import { Form, FormGroup, FormControl, FormLabel, FormText } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './addQuestion.less';
 import Button from "../../components/button";
+import FormItem from './formItem';
 
 const INITIAL_STATE = {
   question: '',
@@ -51,27 +51,14 @@ class QuestionsForm extends Component {
   };
 
   render() {
-    const {gotData} = this.props;
     return (
       <form onSubmit={this.handleSubmit} className={styles.form}>
-        <div className='form-group'>
-          <label className={`form-label ${styles.label}`}>Your question</label>
-          <textarea className='form-control' onChange={this.handleQuestionChange}/>
-        </div>
-        <div className='form-group'>
-          <label className={`form-label ${styles.label}`}>First answer</label>
-          <input className='form-control' onChange={this.handleFirstAnswerChange}/>
-        </div>
-        <div className='form-group'>
-          <label className={`form-label ${styles.label}`}>Second answer</label>
-          <input className='form-control' onChange={this.handleSecondAnswerChange}/>
-        </div>
+        <FormItem type='textarea' text='Your question' handle={this.handleQuestionChange} />
+        <FormItem text='First answer' handle={this.handleFirstAnswerChange} />
+        <FormItem text='Second answer' handle={this.handleSecondAnswerChange} />
         <div className={styles.wrapper__btn}>
-          <NavLink to='/home'><Button text='Cancel'/></NavLink>
-          <Route path='/' render={() => (
-            gotData ? <Redirect to='/home'/>
-              : <Button text='Add' type='submit'/>
-          )}/>
+          <NavLink to='/'><Button text='Cancel'/></NavLink>
+          <Button text='Add' type='submit'/>
         </div>
       </form>
     )

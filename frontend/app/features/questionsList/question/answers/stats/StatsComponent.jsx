@@ -18,14 +18,17 @@ class Stats extends Component {
     }, 10)
   }
 
-
-
   render() {
     const { percent } = this.props;
     const { width } = this.state;
     const style = {
       width: width + '%',
     };
+
+    if(!percent) {
+      return null
+    }
+
     return (
       <div className='progress'>
           <div role="progressbar" aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100" className={`active progress-bar progress-bar-striped ${styles.custom_progress}`} style={style}>{percent}%</div>

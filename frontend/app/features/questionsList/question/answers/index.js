@@ -1,3 +1,3 @@
-import AnswersComponent from './anwsersComponent';
+import AnswersComponent from './AnwsersComponent';
 
 export default AnswersComponent;
