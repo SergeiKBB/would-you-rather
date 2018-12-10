@@ -1,6 +1,4 @@
-import JsonDB from 'node-json-db';
-
-const db = new JsonDB("questionsDataBase", true, false);
+import db from '../db';
 
 export function getAllQuestions(req, res) {
     const questions = db.getData('/questions');
@@ -19,12 +17,12 @@ export function addQuestion(req, res) {
         id: Date.now(),
         question: req.body.question,
         firstAnswer: req.body.firstAnswer,
-        secondAnswer: req.body.secondAnswer,
-        quantityFirstAnswers: 0,
-        quantitySecondAnswers: 0
+        secondAnswer: req.body.secondAnswer
     };
-    db.push('/questions[]', question, true);
-    res.send(question);
+    if (question.question !== '') {
+        db.push('/questions[]', question, true);
+        res.send(question);
+    }
 }
 
 export function updateQuestion(req, res) {

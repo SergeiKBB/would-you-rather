@@ -47,38 +47,74 @@
             "secondAnswer": "live on the streets of a city as a homeless person",
             "quantityFirstAnswers": 0,
             "quantitySecondAnswers": 0
+        },
+        {
+            "id": 1544447924782,
+            "question": "Would you rather be the first person to explore a planet or be the inventor of a drug that cures a deadly disease?",
+            "firstAnswer": "be the first person to explore a planet",
+            "secondAnswer": "be the inventor of a drug that cures a deadly disease",
+            "quantityFirstAnswers": 0,
+            "quantitySecondAnswers": 0
+        },
+        {
+            "id": 1544447980495,
+            "question": "Would you rather be locked in a room that is constantly dark for a week or a room that is constantly bright for a week?",
+            "firstAnswer": "a room that is constantly dark for a week",
+            "secondAnswer": " a room that is constantly bright for a week",
+            "quantityFirstAnswers": 0,
+            "quantitySecondAnswers": 0
         }
     ],
     "stats": [
         {
-            "id": "1543588500694",
-            "firstAnswer": 3,
+            "id": 1544453791984,
+            "firstAnswer": 2,
+            "secondAnswer": 0
+        },
+        {
+            "id": 1543842961287,
+            "firstAnswer": 0,
             "secondAnswer": 1
         },
         {
-            "id": "1543588424308",
-            "firstAnswer": 2,
-            "secondAnswer": 2
+            "id": 1543587988523,
+            "firstAnswer": 3,
+            "secondAnswer": 0
         },
         {
-            "id": "1543588273421",
+            "id": 1543588172197,
             "firstAnswer": 2,
-            "secondAnswer": 2
+            "secondAnswer": 1
         },
         {
-            "id": "1543842961287",
+            "id": 1543588273421,
             "firstAnswer": 1,
             "secondAnswer": 0
         },
         {
-            "id": "1543587988523",
-            "firstAnswer": 131,
-            "secondAnswer": 55
+            "id": 1543588424308,
+            "firstAnswer": 1,
+            "secondAnswer": 1
         },
         {
-            "id": "1543588172197",
-            "firstAnswer": 13,
-            "secondAnswer": 10
+            "id": 1543588500694,
+            "firstAnswer": 2,
+            "secondAnswer": 0
+        },
+        {
+            "id": 1544447924782,
+            "firstAnswer": 3,
+            "secondAnswer": 0
+        },
+        {
+            "id": 1544447980495,
+            "firstAnswer": 0,
+            "secondAnswer": 1
+        },
+        {
+            "id": 1544458790863,
+            "firstAnswer": 1,
+            "secondAnswer": 0
         }
     ]
 }

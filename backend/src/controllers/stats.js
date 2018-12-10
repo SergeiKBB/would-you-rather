@@ -1,6 +1,4 @@
-import JsonDB from 'node-json-db';
-
-const db = new JsonDB("questionsDataBase", true, false);
+import db from '../db';
 
 export function getStats(req, res) {
     const question = db.find('/stats', (item) => {
@@ -21,7 +19,7 @@ export function updateStats(req, res) {
         db.push('/stats[]', question)
     } else {
         question = {
-            id: req.params.id,
+            id: req.body.id,
             firstAnswer: req.body.firstAnswer,
             secondAnswer: req.body.secondAnswer
         };
