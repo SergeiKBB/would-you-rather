@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/header/headerComponent';
+import Header from '../components/header/HeaderComponent';
 import AddQuestionForm from '../features/addQuestion';
 
 const AddQuestion = props => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './header.less';
 
 const Header = props => {
@@ -9,7 +10,12 @@ const Header = props => {
             {children}
         </header>
     );
-}
+};
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.object
+};
 
 
 export default Header;
