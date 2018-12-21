@@ -27,3 +27,8 @@ export function updateStats(req, res) {
     }
     res.sendStatus(200);
 }
+
+export function getAllStats(req, res) {
+    const answers = db.getData('/stats');
+    res.send(answers);
+}
