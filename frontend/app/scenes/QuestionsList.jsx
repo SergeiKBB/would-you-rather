@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../components/header/HeaderComponent';
 import Button from '../components/button';
 import QuestionsListComponent from '../features/questionsList';
@@ -9,9 +9,13 @@ const QuestionsList = props => {
   return (
     <div>
       <Header title='Would you rather...'>
-        <NavLink to='/addQuestion' className={styles.btn}>
+        <Link to='/statsChart' className={styles.btn}>
+          <Button text='Show stats' />
+        </Link>
+        <Link to='/addQuestion' className={styles.btn}>
           <Button text='Add question' />
-        </NavLink></Header>
+        </Link>
+      </Header>
       <QuestionsListComponent />
     </div>
   )

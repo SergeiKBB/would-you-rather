@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './button.less';
 
 const ButtonComponent = props => {
-    const { text, type = 'button' } = props;
-    return <button className={`${styles.btn} btn btn-primary`} type={type}>{text}</button>
+    const { text, type = 'button', className = '' } = props;
+    return <button className={`${styles.btn} btn btn-primary ${className}`} type={type}>{text}</button>
 };
 
 ButtonComponent.propTypes = {

@@ -3,13 +3,14 @@ import { requestQuestionsSuccess, requestQuestionsBegin, requestQuestionsFailure
 import { handleActions } from 'redux-actions';
 
 const initialState = {
-  list: []
+  list: [],
+  isLoading: false
 };
 
 export default handleActions(
   {
-    [requestQuestionsBegin]: state => (state),
-    [requestQuestionsSuccess]: (state, { payload }) => ({ ...state, list: payload}),
+    [requestQuestionsBegin]: state => ({...state,  isLoading: true}),
+    [requestQuestionsSuccess]: (state, { payload }) => ({ ...state, list: payload, isLoading: false}),
     [requestQuestionsFailure]: (state, { payload }) => ({ ...state, error: payload}),
     [requestAddQuestionBegin]: state => state,
     [requestAddQuestionSuccess]: state => state,

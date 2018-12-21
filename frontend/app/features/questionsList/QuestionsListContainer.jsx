@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuestionsComponent from './QuestionsListComponent';
 import { getQuestions } from '../../entities/questions/list/questionsActions';
+import Preloader from "../../components/preloader/PreloaderComponent";
 
 class QuestionsListContainer extends Component {
   componentDidMount() {
@@ -10,7 +11,10 @@ class QuestionsListContainer extends Component {
   }
 
   render() {
-    const { questions } = this.props;
+    const { questions, isLoading } = this.props;
+    if(isLoading) {
+      return <Preloader />
+    }
     return <QuestionsComponent questions={questions}/>
   }
 }
@@ -18,6 +22,7 @@ class QuestionsListContainer extends Component {
 const mapStateToProps = state => {
   return {
     questions: state.questions.list,
+    isLoading: state.questions.isLoading
   }
 };
 

@@ -7,7 +7,9 @@ const Header = props => {
     return (
         <header className={styles.header}>
             <h1 className={styles.title}>{title}</h1>
+          <div className={styles.buttons_wrapper}>
             {children}
+          </div>
         </header>
     );
 };

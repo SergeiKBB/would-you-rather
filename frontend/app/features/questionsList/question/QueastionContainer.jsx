@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import QuestionComponent from './QuestionComponent';
 import { connect } from 'react-redux';
-import { getAnswers, addAnswer } from '../../../entities/questions/stats/statsActions';
-import { getQuestionStatsSelector } from '../../../entities/questions/stats/statsSelectors';
+import {getAnswers, addAnswer} from '../../../entities/questions/stats/statsActions';
+import {getLoadingStatus, getQuestionStatsSelector} from '../../../entities/questions/stats/statsSelectors';
 
 class QuestionContainer extends Component {
   addAnswer = (answer) => {
@@ -11,21 +11,23 @@ class QuestionContainer extends Component {
   };
 
   render() {
-    const { question, answer } = this.props;
+    const { question, answer, dispatch, isLoading } = this.props;
     return (
-      <QuestionComponent addAnswer={this.addAnswer} question={question} answer={answer} />
+      <QuestionComponent addAnswer={this.addAnswer} question={question} answer={answer} dispatch={dispatch} isLoading={isLoading}/>
     )
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   onAddAnswer: answer => (dispatch(addAnswer(answer))),
-  onGetAnswer: id => (dispatch(getAnswers(id)))
+  onGetAnswer: id => (dispatch(getAnswers(id))),
+  dispatch: dispatch
 });
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    answer: getQuestionStatsSelector(state, ownProps)
+    answer: getQuestionStatsSelector(state, ownProps),
+    isLoading: getLoadingStatus(state, ownProps)
   }};
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionContainer);

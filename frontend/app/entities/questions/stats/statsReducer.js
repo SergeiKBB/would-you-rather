@@ -1,36 +1,54 @@
-import { requestAnswersBegin, requestAnswersSuccess,
-  requestAnswersFailure, requestAddAnswerBegin, requestAddAnswerSuccess, requestAddAnswerFailure } from './statsActions';
-import { handleActions } from 'redux-actions';
+import {
+  requestAnswersBegin, requestAnswersSuccess,
+  requestAnswersFailure, requestAddAnswerBegin, requestAddAnswerSuccess, requestAddAnswerFailure,
+  getAllAnswersBegin, getAllAnswersSuccess, getAllAnswersFailure
+} from './statsActions';
+import {handleActions} from 'redux-actions';
 
 const initialState = {
-  answers: []
+  answers: [],
+  loading: []
 };
 
 export default handleActions(
   {
-    [requestAnswersBegin]: state => (state),
+    [requestAnswersBegin]: (state, { payload }) => ({...state, loading: transformLoadingArray(state.loading, {id: payload, isLoading: true})}),
     [requestAnswersSuccess]: requestAnswersProcessor,
-    [requestAnswersFailure]: (state, { payload }) => ({ ...state, error: payload}),
-    [requestAddAnswerBegin]: state => (state),
-    [requestAddAnswerSuccess]: state => (state),
-    [requestAddAnswerFailure]: (state, { payload }) => ({...state, error: payload})
+    [requestAnswersFailure]: (state, {payload}) => ({...state, error: payload}),
+    [requestAddAnswerBegin]: state => ({...state, isLoading: true}),
+    [requestAddAnswerSuccess]: state => ({...state, isLoading: false}),
+    [requestAddAnswerFailure]: (state, {payload}) => ({...state, error: payload}),
+    [getAllAnswersBegin]: state => ({...state, isLoading: true}),
+    [getAllAnswersSuccess]: (state, { payload }) => ({...state, answers: payload, isLoading: false}),
+    [getAllAnswersFailure]: (state, {payload}) => ({...state, error: payload})
   },
   initialState
 );
 
-function requestAnswersProcessor (state, { payload }) {
+function requestAnswersProcessor(state, {payload: { data, id }}) {
   const answers = [...state.answers];
   const index = answers.findIndex(item => {
-    return item.id === payload.id;
+    return item.id === data.id;
   });
-  if(index === -1) {
-    answers.push(payload);
+  if (index === -1) {
+    answers.push(data);
   } else {
-    answers[index] = payload;
+    answers[index] = data;
   }
-
   return {
     ...state,
-    answers: answers
+    answers: answers,
+    loading: transformLoadingArray(state.loading, {id, isLoading: false})
   }
+}
+
+function transformLoadingArray(array, item) {
+  let newArray = [...array];
+  const index = newArray.findIndex(element => element.id === item.id);
+  if(index >= 0) {
+    newArray[index] = item;
+  } else {
+    newArray.push(item);
+  }
+  return newArray
 }
