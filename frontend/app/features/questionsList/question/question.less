@@ -1,0 +1,25 @@
+.question {
+  position: relative;
+  margin-bottom: 10px;
+  &::before {
+    content: '\f30c';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    margin-right: 10px;
+    font-weight: bold;
+    font-family: "Font Awesome 5 Free";
+    transition: 1s;
+  }
+
+  &_active {
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.form {
+  padding: 10px 15px 0 30px;
+}
+
